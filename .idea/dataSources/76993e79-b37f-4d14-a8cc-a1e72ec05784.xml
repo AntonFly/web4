@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="labs@fly.sytes.net">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.11">
+    <root id="1">
+      <ServerVersion>9.4.2</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="labs">
+      <ObjectId>18646</ObjectId>
+      <Owner>postgres</Owner>
+      <IntrospectionStateNumber>25</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <database id="3" parent="1" name="multhub">
+      <ObjectId>16967</ObjectId>
+      <Owner>anton_fly</Owner>
+    </database>
+    <database id="4" parent="1" name="multhub2">
+      <ObjectId>17237</ObjectId>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="5" parent="1" name="postgres">
+      <ObjectId>12181</ObjectId>
+      <Comment>default administrative connection database</Comment>
+      <Owner>postgres</Owner>
+    </database>
+    <role id="6" parent="1" name="anton_fly">
+      <ObjectId>16592</ObjectId>
+      <Inherit>1</Inherit>
+      <CanLogin>1</CanLogin>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="7" parent="1" name="divan">
+      <ObjectId>16969</ObjectId>
+      <Inherit>1</Inherit>
+      <CanLogin>1</CanLogin>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="8" parent="1" name="postgres">
+      <ObjectId>10</ObjectId>
+      <SuperRole>1</SuperRole>
+      <Inherit>1</Inherit>
+      <CreateRole>1</CreateRole>
+      <CreateDb>1</CreateDb>
+      <CanLogin>1</CanLogin>
+      <Replication>1</Replication>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="9" parent="1" name="users">
+      <ObjectId>16968</ObjectId>
+      <Inherit>1</Inherit>
+      <CreateDb>1</CreateDb>
+      <CanLogin>1</CanLogin>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <schema id="10" parent="2" name="information_schema">
+      <ObjectId>11631</ObjectId>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="11" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+      <Comment>system catalog schema</Comment>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="12" parent="2" name="pg_temp_1">
+      <ObjectId>11320</ObjectId>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="13" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+      <Comment>reserved schema for TOAST tables</Comment>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="14" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11321</ObjectId>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="15" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <Comment>standard public schema</Comment>
+      <Owner>postgres</Owner>
+      <IntrospectionTimestamp>2019-01-06.18:12:38.059</IntrospectionTimestamp>
+      <IntrospectionStateNumber>7154</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <access-method id="16" parent="2" name="btree">
+      <ObjectId>403</ObjectId>
+      <Comment>b-tree index access method</Comment>
+    </access-method>
+    <access-method id="17" parent="2" name="hash">
+      <ObjectId>405</ObjectId>
+      <Comment>hash index access method</Comment>
+    </access-method>
+    <access-method id="18" parent="2" name="gist">
+      <ObjectId>783</ObjectId>
+      <Comment>GiST index access method</Comment>
+    </access-method>
+    <access-method id="19" parent="2" name="gin">
+      <ObjectId>2742</ObjectId>
+      <Comment>GIN index access method</Comment>
+    </access-method>
+    <access-method id="20" parent="2" name="spgist">
+      <ObjectId>4000</ObjectId>
+      <Comment>SP-GiST index access method</Comment>
+    </access-method>
+    <sequence id="21" parent="15" name="hibernate_sequence">
+      <ObjectId>18675</ObjectId>
+      <Owner>anton_fly</Owner>
+      <StateNumber>7149</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <table id="22" parent="15" name="dots">
+      <ObjectId>18667</ObjectId>
+      <Owner>anton_fly</Owner>
+      <StateNumber>7147</StateNumber>
+    </table>
+    <table id="23" parent="15" name="results">
+      <ObjectId>18647</ObjectId>
+      <Owner>anton_fly</Owner>
+      <StateNumber>7143</StateNumber>
+    </table>
+    <table id="24" parent="15" name="users">
+      <ObjectId>18659</ObjectId>
+      <Owner>anton_fly</Owner>
+      <StateNumber>7154</StateNumber>
+    </table>
+    <column id="25" parent="22" name="x">
+      <Position>1</Position>
+      <DataType>double precision|0s</DataType>
+      <StateNumber>7142</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="26" parent="22" name="y">
+      <Position>2</Position>
+      <DataType>double precision|0s</DataType>
+      <StateNumber>7142</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="27" parent="22" name="r">
+      <Position>3</Position>
+      <DataType>double precision|0s</DataType>
+      <StateNumber>7142</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="28" parent="22" name="hit">
+      <Position>4</Position>
+      <DataType>boolean|0s</DataType>
+      <StateNumber>7142</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="29" parent="22" name="login">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>7142</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="30" parent="22" name="id">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>7148</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="31" parent="22" name="dots_pk">
+      <ObjectId>18673</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="32" parent="22" name="dots_pk">
+      <ObjectId>18674</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>dots_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="33" parent="23" name="x">
+      <Position>1</Position>
+      <DataType>real|0s</DataType>
+      <StateNumber>6563</StateNumber>
+      <TypeId>700</TypeId>
+    </column>
+    <column id="34" parent="23" name="y">
+      <Position>2</Position>
+      <DataType>real|0s</DataType>
+      <StateNumber>6563</StateNumber>
+      <TypeId>700</TypeId>
+    </column>
+    <column id="35" parent="23" name="r">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>6563</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="36" parent="23" name="checking">
+      <Position>4</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>6563</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="37" parent="23" name="sessionid">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>6563</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="38" parent="24" name="username">
+      <Position>1</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>7152</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="39" parent="24" name="password">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>7121</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="40" parent="24" name="firstname">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>7153</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="41" parent="24" name="lastname">
+      <Position>4</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>7154</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <index id="42" parent="24" name="table_name_pkey">
+      <ObjectId>18665</ObjectId>
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="43" parent="24" name="table_name_pkey">
+      <ObjectId>18666</ObjectId>
+      <ColNames>username</ColNames>
+      <UnderlyingIndexName>table_name_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
