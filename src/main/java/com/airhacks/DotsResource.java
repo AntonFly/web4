@@ -44,9 +44,9 @@ public class DotsResource {
             if    ((y >= 0 && x >= 0 && x <= r  && y <= r/2) ||     //rectangle
                         (x >= 0 && y <= 0 && y >= 2*x - r ) ||      //triangle
                         (y >= 0 && x <= 0 && x * x + y * y < r * r ))
-            dot.setHit(true);
+            dot.setResult(true);
             else
-                dot.setHit(false);
+                dot.setResult(false);
             dot.setLogin(login);
             service.saveShot(dot);
             ObjectMapper mapper = new ObjectMapper();
@@ -81,7 +81,13 @@ public class DotsResource {
     @GET
     @Path(value = "/drop{login}")
     public Response drop(@PathParam("login") String login){
+        try {
+            //service = null;
             service.drop(login);
-        return Response.ok("dropped").build();
+        }catch (Exception e){
+            e.printStackTrace();
+            return Response.ok("{\"message\":\"error \"}").build();
+        }
+        return Response.ok("{\"message\":\"dropped\"}").build();
     }
 }

@@ -18,14 +18,21 @@ public class Dots {
     @Column
     private float r;
     @Column
-    private boolean hit;
-
+    private boolean result;
 
     public Dots(){}
+
     public Dots(float x, float y, float r){
         this.x =x;
         this.y =y;
         this.r=r;
+    }
+    public boolean isResult() {
+        return result;
+    }
+
+    public void setResult(boolean result) {
+        this.result = result;
     }
 
     public int getId() {
@@ -68,11 +75,5 @@ public class Dots {
         this.r = r;
     }
 
-    public boolean isHit() {
-        return hit;
-    }
 
-    public void setHit(boolean hit) {
-        this.hit = hit;
-    }
 }
