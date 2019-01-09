@@ -19,7 +19,7 @@ public class DotsService {
 
      public  List<Dots> getAllShots(String login){
         System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"+" "+login+" "+em);
-        return  em.createQuery("from Dots d where d.login ="+login).getResultList();
+        return  em.createQuery("from Dots d where d.login like \'"+login+"\'").getResultList();
     }
 
     public void drop(String login){

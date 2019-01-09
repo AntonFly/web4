@@ -16,14 +16,8 @@ import javax.json.JsonArray;
 import javax.json.JsonObjectBuilder;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.ws.rs.FormParam;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.StreamingOutput;
-import javax.ws.rs.core.UriInfo;
+import javax.ws.rs.*;
+import javax.ws.rs.core.*;
 import java.io.IOException;
 import java.io.OutputStream;
 
@@ -49,25 +43,28 @@ public class UserResources {
 
   @POST
   @Path("/signIn")
-  public Response fingByLogin(@FormParam("login") final String login, @FormParam("password") String password ) throws JsonProcessingException {
+  public Response fingByLogin(@FormParam("username") final String login, @FormParam("password") String password ) throws JsonProcessingException {
     Users user =this.loginPage.getUser(login);
     if (user == null)
-      return Response.noContent().build();
+//      return Response.ok().status(400).build();
+        return Response.ok("{\"msg\":\"Неверный пароль или логин\"}").build();
     HashFunction hf = Hashing.md5();
     HashCode hc = hf.newHasher()
       .putString(password, Charsets.UTF_8)
       .hash();
     if( user.getPassword().equals(hc.toString())){
         ObjectMapper mapper = new ObjectMapper();
+        loginPage.detatch(user);
         user.setPassword(null);
         String jsonString = mapper.writeValueAsString(user);
       return Response.ok(jsonString).build();
     }
     else
     {
-      Response.ResponseBuilder response = Response.ok();
-      response.status(400);
-      return response.build();
+        return Response.ok("{\"msg\":\"Неверный пароль или логин\"}").build();
+//Response.ResponseBuilder response = Response.ok();
+//      response.status(400);
+//      return response.build();
     }
 
   }
@@ -75,12 +72,13 @@ public class UserResources {
   @POST
   @Path("/signUp")
   public Response signUp(@FormParam("username") final String username,
-                          @FormParam("password") String password,
-                          @FormParam("firstname") String firstname,
-                          @FormParam("lastname") String lastname){
+                         @FormParam("password") String password,
+                         @FormParam("firstname") String firstname,
+                         @FormParam("lastname") String lastname){
       try {
+      System.out.println("sfdsfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdsfsdfsdfsdffdsfsdv!!!!!!!"+username+" "+password+" "+firstname+" ");
       Users user =new Users();
-      user.setLogin(username);
+      user.setUsername(username);
       HashFunction hf = Hashing.md5();
       HashCode hc = hf.newHasher()
         .putString(password, Charsets.UTF_8)
@@ -88,15 +86,25 @@ public class UserResources {
       user.setPassword(hc.toString());
       user.setFirstname(firstname);
       user.setLastname(lastname);
-//      System.out.println("sfdsfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdsfsdfsdfsdffdsfsdv!!!!!!!"+user.getLogin()+" "+user.getPassword()+" "+loginPage+" ");
 //      em.persist(user);
       this.loginPage.addUser(user);
       return   Response.ok().status(200).build();
       }catch (Exception e){
+          e.printStackTrace();
           Response.ResponseBuilder response = Response.ok();
           response.status(401);
           return response.build();
       }
   }
+
+    @GET
+    @Path("/try{login}")
+    public  Response tryLogin(@PathParam(value = "login") String login){
+        Users user =this.loginPage.getUser(login);
+        System.out.println(login);
+        if (user == null)
+            return Response.ok("{\"msg\":\"true\"}").build();
+        return Response.ok("{\"msg\":\"false\"}").build();
+    }
 
 }

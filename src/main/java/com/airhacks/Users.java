@@ -13,22 +13,23 @@ import javax.persistence.*;
 public class Users {
   @Id
   private String username;
+
   @Column
   private String password;
   @Column
   private String firstname;
   @Column
   private String lastname;
-
   public Users() {
   }
 
-  public String getLogin() {
+
+  public String getUsername() {
     return username;
   }
 
-  public void setLogin(String login) {
-    this.username = login;
+  public void setUsername(String username) {
+    this.username = username;
   }
 
   public String getPassword() {

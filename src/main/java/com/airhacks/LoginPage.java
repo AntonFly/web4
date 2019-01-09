@@ -20,5 +20,8 @@ public class LoginPage {
     this.em.persist(user);
   }
 
+  public void detatch(Users users){
+    this.em.detach(users);
+  }
 
 }
